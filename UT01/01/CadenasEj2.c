@@ -6,17 +6,43 @@ debe eliminar los espacios y considerar solo las letras en la verificación.*/
 
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
+#include <ctype.h>
 #define BUFFER 1024 //esto es definir una constante
 
 int main() {
     char cadena[BUFFER];
-    int contVocales=0;
+    bool esPalindromo=false;
+    
     printf("Introduce una frase\n");
-    fgets(cadena, sizeof(cadena),stdin);
-    for(int i=0;i<strlen(cadena);i++){
-        
+    //scanf(" %[^\n]",cadena);
+    fgets(cadena, sizeof(cadena),stdin);//aqui con el fgets coge el intro del final**
+    int longitud=strlen(cadena);
+
+    for(int i=0; i<longitud ;i++){
+        cadena[i]=tolower(cadena[i]);
     }
-    printf("La frase \"%s\" tiene %d vocales ",cadena,contVocales);
+
+//**aqui eliminamos esa \n de la frase restandole a longitud
+    if(cadena[longitud-1]=='\n'){
+        //cadena[longitud-1]='\0'; 
+        //no es necesario, pero el \0 lo pone cuando se ha acabado la frase
+        longitud--;
+    } 
+
+    for(int i=0; i<longitud; i++){
+        if(cadena[i]!=cadena[longitud-1-i]){//aqui se resta 1 porque los array empiezan en 0 recuerdalo
+            esPalindromo=false;
+        }else{
+            esPalindromo=true;
+        }
+    }
+
+    if(esPalindromo){
+        printf("La frase \"%s\" es palindromo\n",cadena);
+    }else{
+        printf("La frase \"%s\" NO es palindromo\n",cadena);
+    }
 
     return 0;
 }
