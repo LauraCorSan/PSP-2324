@@ -1,22 +1,40 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <sys/wait.h>
+
+int esPrimo(int n){
+    int primo = 1;
+    int i = 2;
+    while(primo && i<n/2){
+        if(n%i==0){
+            primo=0;
+        }
+        i++;
+    }
+    return primo; 
+}
 
 int main (void){
-    pid_t id_mi_hijo;//declaro variable para alamacenar ids de procesos
+    pid_t id_mi_hijo; //declaro variable para alamacenar ids de procesos
 
-    int n=42;
-    double pi=3.14;
+    unsigned int n = 25;
 
     //clonacion!
-    id_mi_hijo=fork();
+    id_mi_hijo = fork();
 
-    //Hay dos procesos, cual es cual?(padre vs hijo)
-    if(id_mi_hijo!=0){//padre?
-        printf("Soy el padre, mi id es %d, y mi hijo es %d\n",getpid(),id_mi_hijo);
-    }else{//hijo?
-        printf("Soy el hijo mi id es %d, y mi hijo es %d\n",getpid(),id_mi_hijo);
+    //Hay dos procesos
+    if(id_mi_hijo != 0){//padre
+        //descansar hasta que el hijo finalice
+        int status;
+        wait(&status);
+        fprintf(stdout, "El hijo ha finalizado, el numero...  %s\n", (WEXITSTATUS(status) == 1) ? "es primo" : "NO es primo");
+    
+    }else{//hijo
+        fprintf(stdout, "Me pondre a ver si el numero es primo\n");
+        int primo = esPrimo(n);
+        fprintf(stdout, "¡Termine! Te dejo en mi estado si era primo *se muere* \n");
+        exit(primo);
     }
-
     return 0;
 }

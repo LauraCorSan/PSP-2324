@@ -7,6 +7,12 @@ Ten en cuenta que necesita al menos 3 parámetros, de lo contrario deberá apare
 #define ARG_SUFICIENTES 3
 
 int main(int argc, char *argv[]){
+    /*podrias poner un puntero que apunte a la direccion de argv[1],agrv[2] y argv[3] en lugar de argv[1] 
+    sin variable para que sea mas claro*/
+    const char *operacion = argv[1];
+    const char *num1 = argv[2];
+    const char *num2 = argv[3];
+
     int resultado=0;
 
      if (argc < ARG_SUFICIENTES+1) {  //el +1 para incluir el nombre del proceso
@@ -18,23 +24,23 @@ int main(int argc, char *argv[]){
         return 1;
 
     }else{
-        if (strcmp(argv[1], "suma") == 0) {//strcmp compara un array de char (string) 
-            resultado = atoi(argv[2]) + atoi(argv[3]);//atoi convierte array char (string) en int
+        if (strcmp(operacion, "suma") == 0) {//strcmp compara un array de char (string) 
+            resultado = atoi(num1) + atoi(num2);//atoi convierte array char (string) en int
             printf("%d\n",resultado);
 
-        } else if (strcmp(argv[1], "resta") == 0) {
-            resultado = atoi(argv[2]) - atoi(argv[3]);
+        } else if (strcmp(operacion, "resta") == 0) {
+            resultado = atoi(num1) - atoi(num2);
             printf("%d\n",resultado);
 
-        } else if (strcmp(argv[1], "multiplicacion") == 0) {
-            resultado = atoi(argv[2]) * atoi(argv[3]);
+        } else if (strcmp(operacion, "multiplicacion") == 0) {
+            resultado = atoi(num1) * atoi(num2);
             printf("%d\n",resultado);
             
-        } else if (strcmp(argv[1], "division")==0){
-            if(atoi(argv[3])==0){
+        } else if (strcmp(operacion, "division")==0){
+            if(atoi(num2)==0){
                 printf("No se puede dividir entre cero\n");
             }else{
-                resultado = atoi(argv[2]) / atoi(argv[3]);
+                resultado = atoi(num1) / atoi(num2);
                 printf("%d\n",resultado);
             }
 
