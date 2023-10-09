@@ -34,9 +34,9 @@ int main (void){
         fprintf(stdout, "Me pondre a ver si el numero es primo\n");
         int primo = esPrimo(n);
         fprintf(stdout, "¡Termine! Te dejo en mi estado si era primo *se muere* \n");
-        exit(primo);//se usa para terminar el proceso del todo (como este es el hijo, se sigue ejecutando la parte del padre)
-        //tambien sirve return solo porque esta en el main, porque si usas return en un metodo por ejemplo, solo se sale del metodo, pero
-        //ai usas el exit si puedes, estes donde estes, terminar el proceso
+        exit(primo);/*se usa para terminar el proceso del todo (como este es el hijo, se sigue ejecutando la parte del padre)
+        tambien sirve return solo porque esta en el main, porque si usas return en un metodo por ejemplo, solo se sale del metodo, pero
+        ai usas el exit si puedes, estes donde estes, terminar el proceso*/
     }
     return 0;
 }
