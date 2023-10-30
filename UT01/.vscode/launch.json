@@ -2,6 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "ProcessBuilderDemo",
+      "request": "launch",
+      "mainClass": "ProcessBuilderDemo",
+      "projectName": "UT01_6b35383a"
+    },
+    {
+      "type": "java",
+      "name": "Ejecuta",
+      "request": "launch",
+      "mainClass": "Ejecuta",
+      "projectName": ""
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
