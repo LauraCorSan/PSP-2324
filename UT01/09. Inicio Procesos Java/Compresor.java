@@ -11,28 +11,28 @@ import java.io.IOException;
 public class Compresor {
     public static final String FECHA = "_2023_10_30";
     public static void main(String[] args) throws IOException, InterruptedException{
-        String argumento=args[0];
-        String nombreArchivo=argumento.replace('/', '_')+FECHA;
-    
-        
-        String [] comands={
-            "tar",
-            "-czvf",
-            //args[0]+".tar.gz",
-            //pasarle el nombre 
-            nombreArchivo,
-            args[0]
-        };
 
-        //tar -czvf nombre-nuevo directorio
+        for(int i=0 ; i<args.length ; i++){
+            String argumento=args[i];
+            String nombreArchivo=argumento.replace('/', '_')+FECHA;
+            String [] comands={
+                "tar",
+                "-czvf",
+                //args[0]+".tar.gz",
+                //pasarle el nombre 
+                nombreArchivo,
+                args[i]
+            };
 
-        ProcessBuilder pb= new ProcessBuilder(comands);
+            //tar -czvf nombre-nuevo directorio
 
-        Process process = pb.start();
+            ProcessBuilder pb= new ProcessBuilder(comands);
 
-        pb.inheritIO();//imrpime lo que sea tambien en nuestro proceso
+            Process process = pb.start();
 
-        System.out.println("Proceso terminado");
-        
+            pb.inheritIO();//imrpime lo que sea tambien en nuestro proceso
+
+            System.out.println("Proceso terminado");
+        }
     }
 }
