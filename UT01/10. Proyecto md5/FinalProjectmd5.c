@@ -63,8 +63,12 @@ void realizarTrabajoHIjo(int soy_hijo, int num_proceso){
 }
 
 int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        printf("No ha introducido el numero de procesos a usar para el programa %s", argv[0]);
+        return 1;
+    }
     
-    int n_procesos = 8;
+    int n_procesos = atoi(argv[1]);
 
     pid_t hijos[n_procesos];
 
