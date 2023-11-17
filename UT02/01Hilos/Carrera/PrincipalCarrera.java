@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Principal {
+public class PrincipalCarrera {
     private static final int TOTAL_CARRERA = 100;
     private static final int TOTAL_CORREDORES = 10;
     public static void main(String[] args) {

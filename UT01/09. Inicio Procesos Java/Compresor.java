@@ -28,7 +28,7 @@ public class Compresor {
 
             ProcessBuilder pb = new ProcessBuilder(comands);
 
-            Process process = pb.start();
+            pb.start();
 
             pb.inheritIO();// imrpime lo que sea tambien en nuestro proceso
 

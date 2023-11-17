@@ -3,6 +3,27 @@
   "configurations": [
     {
       "type": "java",
+      "name": "PrincipalTablas",
+      "request": "launch",
+      "mainClass": "PrincipalTablas",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
+      "name": "PrincipalCarrera",
+      "request": "launch",
+      "mainClass": "PrincipalCarrera",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
+      "name": "Compresor",
+      "request": "launch",
+      "mainClass": "Compresor",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
       "name": "Principal",
       "request": "launch",
       "mainClass": "Principal",

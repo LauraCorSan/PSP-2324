@@ -57,7 +57,9 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "java.project.sourcePaths": [
+    "UT02/01Hilos/Carrera",
+    "UT02/01. Hilos/Carrera",
     "UT01/09. Inicio Procesos Java",
-    "UT02/01. Hilos/Carrera"
+    "UT02/01Hilos/TablasMultiplicar"
   ]
 }
