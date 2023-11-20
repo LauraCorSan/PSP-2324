@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Cancion implements Runnable{
     String animal;
     String accion;
@@ -24,16 +26,16 @@ public class Cancion implements Runnable{
     @Override
     public void run() {
         Random rand = new Random();
-        for (int i = 1; i <= numeroMaximo; i++) {
+        for (int i = 1; i <= numMax; i++) {
             int numeroAleatorio = rand.nextInt(200001) + 100000;
 
             // Verificar si el número aleatorio es primo
             if (esPrimo(numeroAleatorio)) {
-                System.out.println(tipoAnimal + " " + accion + " sobre la tela de una araña");
-                System.out.println("Número aleatorio (" + tipoAnimal + " " + i + "): " + numeroAleatorio + " es primo\n");
+                System.out.println(animal + " " + accion + " sobre la tela de una araña");
+                System.out.println("Número aleatorio (" + animal + " " + i + "): " + numeroAleatorio + " es primo\n");
             } else {
-                System.out.println(tipoAnimal + " " + accion + " sobre la tela de una araña");
-                System.out.println("Número aleatorio (" + tipoAnimal + " " + i + "): " + numeroAleatorio + " no es primo\n");
+                System.out.println(animal + " " + accion + " sobre la tela de una araña");
+                System.out.println("Número aleatorio (" + animal + " " + i + "): " + numeroAleatorio + " no es primo\n");
             }
         }
     }

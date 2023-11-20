@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "PrincipalCancion",
+      "request": "launch",
+      "mainClass": "PrincipalCancion",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
       "name": "PrincipalTablas",
       "request": "launch",
       "mainClass": "PrincipalTablas",
