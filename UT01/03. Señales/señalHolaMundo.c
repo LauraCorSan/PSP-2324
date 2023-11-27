@@ -8,7 +8,7 @@ void sigint_handler1(int signo) {
     
     printf("HOLA\n");
     // Aquí puedes realizar acciones adicionales antes de salir si lo deseas
-    exit(0);
+    //exit(0);
 }
 
 void sigint_handler2(int signo) {
@@ -20,8 +20,9 @@ void sigint_handler2(int signo) {
 
 int main() {
     // Registrar un manejador de señales para SIGINT usando la función signal
-    signal(SIGUSR1, sigint_handler1);//-11
-    signal(SIGUSR2, sigint_handler2);//-12
+    signal(SIGUSR1, sigint_handler1);//-10
+    //signal(SIGUSR2, sigint_handler2);//-12
+    signal(SIGINT, sigint_handler2);// CTRL C
     
     // Mantén el programa en ejecución para recibir la señal
     while (1) {

@@ -61,5 +61,8 @@
     "UT02/01Hilos/Carrera",
     "UT01/09. Inicio Procesos Java",
     "UT02/01Hilos/CancionInfantil"
-  ]
+  ],
+  "files.associations": {
+    "stdio.h": "c"
+  }
 }
