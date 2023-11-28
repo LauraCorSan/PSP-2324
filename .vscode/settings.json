@@ -59,8 +59,9 @@
   "java.project.sourcePaths": [
     "UT02/01Hilos/TablasMultiplicar",
     "UT02/01Hilos/Carrera",
+    "UT02/01Hilos/CancionInfantil",
     "UT01/09. Inicio Procesos Java",
-    "UT02/01Hilos/CancionInfantil"
+    "UT01/05. Entrenamiento C/10,11 Java"
   ],
   "files.associations": {
     "stdio.h": "c"

@@ -4,85 +4,61 @@ el hijo 2 dos letras 'aa' a la 'zz', etc. Los nombres serán datos1.txt, datos2.
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
-// TO DO: ESTA MAL, NO HACE LO QUE DEBE. CREO QUE DEBE SER LA CONDICION DEL WHILE O ALGO ASI YA QUE IMPRIME:
-// Datos1: bien de la a a la z, unico caracter
-// datos2: mal solo una linea "aa"
-// datos3: mal solo una linea "aaa"
+#define MAX 100
 
-#define A_MINUS 97  // esto es a minuscula empezamos ahi
-#define Z_MINUS 122 // esto es z minuscula terminamos ahi
-#define LONG_ALPHABET 26
-
-void generateCombinations(int length, FILE *file)
+int main()
 {
-    char combination[length + 1]; // +1 para el carácter nulo al final de la cadena
+    int hijos;
+    printf("Dime el numero de hijos que quieres\n");
+    scanf("%d", &hijos);
 
-    for (int i = 0; i < length; i++)
+    pid_t id;
+
+    // Iterar para crear la cantidad de procesos hijos especificada
+    for (int i = 0; i < hijos; i++)
     {
-        combination[i] = 'a'; // Inicializar con 'a'
-    }
-    combination[length] = '\0'; // Añadir el carácter nulo al final
+        id = fork(); // Crear un nuevo proceso hijo
 
-    do
-    {
-        fprintf(file, "%s\n", combination); // Escribir la combinación en el archivo
-        int carry = 1;
+        if (id == 0)
+        { // Verificar si es el proceso hijo
+            char nombreArchivo[20];
+            // Construir el nombre del archivo con formato "datosX.txt"
+            snprintf(nombreArchivo, sizeof(nombreArchivo), "datos%d.txt", i + 1);
 
-        // Incrementar la combinación
-        for (int i = length - 1; i >= 0; i--)
-        {
-            combination[i] += carry;
-            carry = (combination[i] > 'z');
+            FILE *archivo = fopen(nombreArchivo, "w"); // Abrir archivo en modo escritura
 
-            if (carry)
+            if (archivo == NULL)
             {
-                combination[i] = 'a';
+                perror("No se pudo abrir el archivo");
+                return 1;
             }
-            else
+
+            // Escribir en el archivo
+            for (int j = 97; j <= 122; j++)
             {
-                break;
+                for (int k = 0; k < i + 1; k++)
+                { // esto lo hago para que añada una letra mas por cada hijo
+                    fprintf(archivo, "%c", (char)j);
+                }
+                fprintf(archivo, "\n");
             }
+
+            // Cerrar el archivo
+            fclose(archivo);
+
+            break; // Salir del bucle en el proceso hijo
         }
-
-    } while (combination[0] != 'a'); // Detenerse cuando se alcance 'z' en la primera posición
-}
-
-int main(int argc, char *argv[])
-{
-    if (argc != 2)
-    {
-        printf("Uso: %s <numero_hijos>\n", argv[0]);
-        return 1;
     }
 
-    int num_hijos = atoi(argv[1]);
-
-    if (num_hijos <= 0)
+    // Esperar a que todos los procesos hijos terminen
+    for (int i = 0; i < hijos; i++)
     {
-        printf("El número de hijos debe ser un entero positivo.\n");
-        return 1;
+        wait(NULL);
     }
-
-    for (int i = 1; i <= num_hijos; i++)
-    {
-        char filename[20];
-        snprintf(filename, sizeof(filename), "datos%d.txt", i);
-
-        FILE *file = fopen(filename, "w");
-        if (file == NULL)
-        {
-            perror("Error al abrir el archivo");
-            return 1;
-        }
-
-        generateCombinations(i, file);
-
-        fclose(file);
-    }
-
-    printf("Se han generado los archivos con las combinaciones.\n");
 
     return 0;
 }

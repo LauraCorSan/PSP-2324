@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ipsLinuxJava",
+      "request": "launch",
+      "mainClass": "ipsLinuxJava",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
       "name": "PrincipalCancion",
       "request": "launch",
       "mainClass": "PrincipalCancion",

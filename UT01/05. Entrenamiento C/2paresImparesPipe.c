@@ -33,21 +33,12 @@ int main()
 
     // Crear el proceso hijo
     pid_t id_hijo1 = fork();
-    pid_t id_hijo2 = fork();
 
     if (id_hijo1 == -1)
     {
         perror("Error al crear el primer hijo");
         exit(EXIT_FAILURE);
     }
-
-    if (id_hijo2 == -1)
-    {
-        perror("Error al crear el segundo hijo");
-        exit(EXIT_FAILURE);
-    }
-
-    // CODIGO HIJOS Y PADRE --------------------------------------------------------------------------
 
     if (id_hijo1 == 0)
     {                           // soy primer hijo
@@ -66,7 +57,16 @@ int main()
 
         exit(EXIT_SUCCESS);
     }
-    else if (id_hijo2 == 0)
+
+    pid_t id_hijo2 = fork();
+
+    if (id_hijo2 == -1)
+    {
+        perror("Error al crear el segundo hijo");
+        exit(EXIT_FAILURE);
+    }
+
+    if (id_hijo2 == 0)
     { // soy el segundo hijo
 
         close(pipe_fd2[WRITE]); // Cerrar el extremo de escritura del proceso hijo2
@@ -83,38 +83,37 @@ int main()
 
         exit(EXIT_SUCCESS);
     }
-    else
-    { // soy padre
 
-        // Cerrar los extremos de lectura de la tubería en el proceso padre, en ambos hijos
-        close(pipe_fd1[READ]);
-        close(pipe_fd2[READ]);
+    // soy padre
 
-        srand(time(NULL)); // esto es para que sea otra semilla y asi los numeros cambien en cada ejecucion
-        int random_numbers[CANT_NUMEROS];
+    // Cerrar los extremos de lectura de la tubería en el proceso padre, en ambos hijos
+    close(pipe_fd1[READ]);
+    close(pipe_fd2[READ]);
 
-        for (int i = 0; i < CANT_NUMEROS; i++)
+    srand(time(NULL)); // esto es para que sea otra semilla y asi los numeros cambien en cada ejecucion
+    int random_numbers[CANT_NUMEROS];
+
+    for (int i = 0; i < CANT_NUMEROS; i++)
+    {
+        random_numbers[i] = rand() % 100; // Números aleatorios entre 0 y 99
+        if (random_numbers[i] % 2 == 0)
         {
-            random_numbers[i] = rand() % 100; // Números aleatorios entre 0 y 99
-            if (random_numbers[i] % 2 == 0)
-            {
-                // enviamos los pares al hijo 1
-                write(pipe_fd1[WRITE], &random_numbers[i], sizeof(int));
-            }
-            else
-            {
-                // enviamos los impares al hijo 2
-                write(pipe_fd2[WRITE], &random_numbers[i], sizeof(int));
-            }
+            // enviamos los pares al hijo 1
+            write(pipe_fd1[WRITE], &random_numbers[i], sizeof(int));
         }
-        // Cerrar las tuberias al fin
-        close(pipe_fd1[WRITE]);
-        close(pipe_fd2[WRITE]);
-
-        // Esperar a que el proceso hijo termine
-        wait(NULL);
-        wait(NULL);
+        else
+        {
+            // enviamos los impares al hijo 2
+            write(pipe_fd2[WRITE], &random_numbers[i], sizeof(int));
+        }
     }
+    // Cerrar las tuberias al fin
+    close(pipe_fd1[WRITE]);
+    close(pipe_fd2[WRITE]);
+
+    // Esperar a que el proceso hijo termine
+    wait(NULL);
+    wait(NULL);
 
     return 0;
 }
