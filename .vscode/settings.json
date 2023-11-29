@@ -57,11 +57,19 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "java.project.sourcePaths": [
-    "UT02/01Hilos/TablasMultiplicar",
-    "UT02/01Hilos/Carrera",
-    "UT02/01Hilos/CancionInfantil",
+    "UT02/01Hilos/6. Carrera/Carrera con Salida",
+    "UT02/01Hilos/6. Carrera/Carrera Simple",
+    "UT02/01Hilos/6. Carrera/Carrera Salida-Llegada",
+    "UT02/01Hilos/5. Bancos",
+    "UT02/01Hilos/4. SincroContador",
+    "UT02/01Hilos/3. CancionInfantil",
+    "UT02/01Hilos/2. TablasMultiplicar",
+    "UT02/01Hilos/1. HolaHilos",
     "UT01/09. Inicio Procesos Java",
-    "UT01/05. Entrenamiento C/10,11 Java"
+    "UT01/06. Entrenamiento Java",
+    "UT01/05. Entrenamiento C/10,11 Java",
+    "ExamenAñoPasado/EjercicioJava",
+    "UT02/01Hilos/Interrupt"
   ],
   "files.associations": {
     "stdio.h": "c"

@@ -8,6 +8,7 @@ una señal a cada uno de ellos para matarlos.*/
 #include <sys/wait.h> //Para incluir wait(NULL)
 #include <signal.h>   //Para trabajar con señales
 
+#define SEGS 1
 #define NUMERO_PARAMETROS 2 // 1+1 del nombre
 #define MAX_PROCESOS 50
 
@@ -51,7 +52,7 @@ int main(int argc, char *argv[])
             // pause();
             while (1)
             {
-                sleep(1); // El proceso hijo espera y no hace nada.
+                sleep(SEGS); // El proceso hijo espera y no hace nada.
                 // Esto es para que no muera y espere a recibir la señal
             }
         }

@@ -1,10 +1,10 @@
 import java.util.Random;
 
-public class Cancion implements Runnable{
+public class Cancion extends Thread {
     String animal;
     String accion;
     int numMax;
-    
+
     public Cancion(String animal, String accion, int numMax) {
         this.animal = animal;
         this.accion = accion;
@@ -21,7 +21,7 @@ public class Cancion implements Runnable{
             }
         }
         return true;
-    } 
+    }
 
     @Override
     public void run() {
@@ -35,7 +35,8 @@ public class Cancion implements Runnable{
                 System.out.println("Número aleatorio (" + animal + " " + i + "): " + numeroAleatorio + " es primo\n");
             } else {
                 System.out.println(animal + " " + accion + " sobre la tela de una araña");
-                System.out.println("Número aleatorio (" + animal + " " + i + "): " + numeroAleatorio + " no es primo\n");
+                System.out
+                        .println("Número aleatorio (" + animal + " " + i + "): " + numeroAleatorio + " no es primo\n");
             }
         }
     }

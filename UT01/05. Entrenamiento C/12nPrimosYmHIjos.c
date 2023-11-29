@@ -1,5 +1,8 @@
 /*12. Crea un programa en c que reciba un número n y un número m. El programa escribirá todos los números
 primos de la longitud n, utilizando m procesos.*/
+
+// NO COMPILA, NO ENCUENTRA EL FILE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -17,7 +20,7 @@ bool esPrimo(int numero)
     }
 
     // Verificar si el número es divisible por algún otro número diferente de 1 y él mismo
-    for (int i = 2; i * i <= numero; i++)
+    for (int i = 2; i <= numero / 2; i++)
     {
         if (numero % i == 0)
         {
@@ -31,18 +34,21 @@ bool esPrimo(int numero)
 // Función que realiza el trabajo de cada proceso hijo
 void realizarTrabajoDeHijo(int indiceHijo, int n_procesos, int nIntroducido)
 {
-    // Calcular el rango para este proceso hijo
-    int rangoInicio = indiceHijo * (nIntroducido / n_procesos) + 1;
-    int rangoFin = (indiceHijo + 1) * (nIntroducido / n_procesos);
+    // Calcular el rango que abarcará cada proceso de base (quiza el ultimo no*)
+    int rango = (nIntroducido / n_procesos);
 
-    // Si soy el último proceso hijo, ajustar el rangoFin
+    // Calcular rango numerico de este hijo en concreto
+    int numInicial = indiceHijo * rango + 1;
+    int numFinal = numInicial + rango - 1;
+
+    // Si soy el último proceso hijo, ajustar mi rango de ejecucuion *
     if (indiceHijo == n_procesos - 1)
     {
-        rangoFin += nIntroducido % n_procesos;
+        numFinal += nIntroducido % n_procesos;
     }
 
     // Buscar números primos en mi rango asignado
-    for (int i = rangoInicio; i <= rangoFin; i++)
+    for (int i = numInicial; i <= numFinal; i++)
     {
         if (esPrimo(i))
         {

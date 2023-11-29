@@ -8,7 +8,7 @@ directorio y la fecha YYYY-MM-DD.*/
 import java.io.IOException;
 
 public class Compresor {
-    public static final String FECHA = "_2023_10_30";
+    public static final String FECHA = "_2023_11_29";
 
     public static void main(String[] args) throws IOException, InterruptedException {
 

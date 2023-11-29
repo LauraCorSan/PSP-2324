@@ -3,6 +3,55 @@
   "configurations": [
     {
       "type": "java",
+      "name": "PrincipalCarreraS",
+      "request": "launch",
+      "mainClass": "PrincipalCarreraS",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
+      "name": "PrincipalCont",
+      "request": "launch",
+      "mainClass": "PrincipalCont",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
+      "name": "ComandoPs",
+      "request": "launch",
+      "mainClass": "ComandoPs",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
+      "name": "ComandoPs",
+      "request": "launch",
+      "mainClass": "EjercicioJava.ComandoPs",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
+      "name": "ListadoUsoEspacio",
+      "request": "launch",
+      "mainClass": "ListadoUsoEspacio",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
+      "name": "ListadoIps",
+      "request": "launch",
+      "mainClass": "ListadoIps",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
+      "name": "MonitorMemoria",
+      "request": "launch",
+      "mainClass": "MonitorMemoria",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
       "name": "ipsLinuxJava",
       "request": "launch",
       "mainClass": "ipsLinuxJava",
