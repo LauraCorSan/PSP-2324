@@ -57,6 +57,9 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "java.project.sourcePaths": [
+    "corderosanchezlaura/ejercicio4",
+    "corderosanchezlaura/ejercicio3",
+    "UT02/01Hilos/Interrupt",
     "UT02/01Hilos/6. Carrera/Carrera con Salida",
     "UT02/01Hilos/6. Carrera/Carrera Simple",
     "UT02/01Hilos/6. Carrera/Carrera Salida-Llegada",
@@ -69,9 +72,11 @@
     "UT01/06. Entrenamiento Java",
     "UT01/05. Entrenamiento C/10,11 Java",
     "ExamenAñoPasado/EjercicioJava",
-    "UT02/01Hilos/Interrupt"
+    "UT03"
   ],
   "files.associations": {
-    "stdio.h": "c"
+    "stdio.h": "c",
+    "math.h": "c",
+    "types.h": "c"
   }
 }

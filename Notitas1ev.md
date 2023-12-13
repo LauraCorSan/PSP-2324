@@ -89,6 +89,9 @@ while (read(pipe_fd1[READ], &numeroPar, sizeof(numeroPar)) > 0)
 ```
 **PISTA:**
 - Usar dos tuberias Ej7 entrenamientoC
+- Para ejecutar md5:
+gcc nombre.c -o nombre -lssl -lcrypto
+- se usa -lm para libreria math (lo de numeros primos largos)
 
 ## JAVA -----------------------------------------------------------------------------------------------
 
