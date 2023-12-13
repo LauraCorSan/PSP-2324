@@ -1,6 +1,8 @@
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
+//TODO Cambiar puerto y mensaje tanto para server como para cliente
+
 public class UDPServer {
     public static void main(String[] args) {
         try {
