@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "EcoCliente",
+      "request": "launch",
+      "mainClass": "EcoCliente",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
       "name": "PrincipalCarreraS",
       "request": "launch",
       "mainClass": "PrincipalCarreraS",

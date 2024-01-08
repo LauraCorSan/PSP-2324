@@ -5,8 +5,9 @@ import java.net.DatagramSocket;
 
 public class UDPServer {
     public static void main(String[] args) {
+        int miPuerto = Integer.valueOf(args[0]);
         try {
-            DatagramSocket socket = new DatagramSocket(9876); // Abre el socket en el puerto 9876
+            DatagramSocket socket = new DatagramSocket(miPuerto); // Abre el socket en el puerto 9876
             byte[] receivedData = new byte[1024];
 
             while (true) {
