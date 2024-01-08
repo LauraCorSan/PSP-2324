@@ -27,6 +27,7 @@ public class ReverseCliente {
             String message = new String(receivedPacket.getData(), 0, receivedPacket.getLength());
             System.out.println("Respuesta del servidor: " + message);
 
+            socket.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
