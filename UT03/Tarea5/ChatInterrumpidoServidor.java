@@ -1,3 +1,5 @@
+package Tarea5;
+
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -7,34 +9,38 @@ public class ChatInterrumpidoServidor {
     public static final int NUM_USUARIOS = 2;
     private static final int MAX_LENGTH = 65535;
     private static final int PORT = 9876;
-    public static boolean continuar = true;
     public static Scanner sc = new Scanner(System.in);
+    private static DatagramPacket packageCliente;
 
     public static void main(String[] args) {
-        try {
-            DatagramSocket socket = new DatagramSocket(PORT);
-            System.out.println("Servidor de Eco esperando conexiones en el puerto " + PORT);
 
-            // Start a new thread for receiving messages
-            Thread receiveThread = new Thread(() -> {
-                while (continuar) {
-                    DatagramPacket packageCliente = recibir(socket);
+        try {
+            DatagramSocket socket = new DatagramSocket(PORT); // Abre el socket en el puerto 9876
+            System.out.println("Servidor de Eco esperando conexiones en el puerto " + PORT);
+            packageCliente = recibir(socket);
+            Thread hiloRecibidor = new Thread(() -> {
+                while (true) {
+                    recibir(socket);
+                }
+            });
+
+            Thread hiloEnviador = new Thread(() -> {
+                while (true) {
                     enviar(socket, packageCliente);
                 }
             });
-            receiveThread.start();
 
-            // Main thread for user input
-            while (continuar) {
-                // You can add more logic for the server if needed
-                // For example, handling special commands from the user
-            }
+            hiloEnviador.start();
+            hiloRecibidor.start();
 
-            // Close the socket
+            // en realidad nunca llegariamos aqui porque esta while ese
+            hiloEnviador.join();
+            hiloRecibidor.join();
             socket.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     public static DatagramPacket recibir(DatagramSocket socket) {
