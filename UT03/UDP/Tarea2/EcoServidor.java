@@ -1,10 +1,10 @@
-package Tarea3;
+package UDP.Tarea2;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-public class ReverseServidor {
+public class EcoServidor {
     private static final int MAX_LENGTH = 65535;
     private static final int PORT = 9876;
 
@@ -25,7 +25,7 @@ public class ReverseServidor {
 
                 InetAddress clientAddress = receivedPacket.getAddress();
                 int clientPort = receivedPacket.getPort();
-                message = revertirString(message);
+                message = "Hola desde el servidor";
                 // Envia la respuesta de vuelta al cliente
                 byte[] sendData = message.getBytes();
                 DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, clientAddress, clientPort);
@@ -34,25 +34,5 @@ public class ReverseServidor {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public static String revertirString(String palabra) {
-        char[] charArray = palabra.toCharArray();
-        int start = 0;
-        int end = palabra.length() - 1;
-
-        while (start < end) {
-            // Intercambia los caracteres en las posiciones start y end
-            char temp = charArray[start];
-            charArray[start] = charArray[end];
-            charArray[end] = temp;
-
-            // Mueve los índices hacia el centro de la cadena
-            start++;
-            end--;
-        }
-
-        // Crea una nueva cadena a partir del arreglo de caracteres invertido
-        return new String(charArray);
     }
 }

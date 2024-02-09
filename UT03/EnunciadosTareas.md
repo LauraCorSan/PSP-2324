@@ -55,6 +55,25 @@ Chat cliente servidor UDP. Ver archivo con esquema:
 
 ## UDP Broadcast
 
+Broadcast es una comunicación a todos los equipos de la misma red. Para realizar el envío se debe utilizar la dirección de broadcast (Con todos los bits de la dirección de red a 1). En java hay que especificar que el envío será broadcast (En anteriores prácticas funciona sin ese flag)
+
+```java
+DatagramSocket ds =  new DatagramSocket();
+byte buffer[] = "Hola mundo\n".getBytes();
+//String ip = "192.168.20.200";
+String ip = "192.168.20.255";
+ds.setBroadcast(true);
+DatagramPacket p = new DatagramPacket(
+        buffer,
+        buffer.length,
+        InetAddress.getByName(ip),
+        4321
+    );
+
+ds.send(p);
+ds.close();
+```
+
 Realiza esta práctica con al menos 3 compañeros:
 
 - Elige una dirección en el rango ```172.20.0.0/16````. Configura cada equipo en ese rango
@@ -95,9 +114,11 @@ Multicast: Versión del chat envía-recibe alternativo. Este se debe ejcutar en 
 
 ## TCP
 
-Ver ejemplo y modificar para enviar y recibir información.
+Tarea 0: Servidor MultiThread [ejemplo] (https://github.com/JorgeDuenasLerin/PSP-2223/tree/main/src/ut03comunicaciones/tcp).
 
-[ejemplo] (https://github.com/JorgeDuenasLerin/PSP-2223/tree/main/src/ut03comunicaciones/tcp).
+El servidor crea un hilo por cada cliente para gestionar: la lectura del mensaje, convertirlo a mayuculas y finalmente devolverlo al cliente. Deben poder conectarse dos clientes o más. (Añadido el cliente envia infinitos mensajes)
+
+Tarea 1: El servidor espera a un cliente, y este al conectarse le manda una cadena. Si el servidor recibe como cadena una 'N' envia al cliente un numero aleatroio, si recibe cualquier otra cadena nviara un mensaje "no entiendo la peticion" y si recibe 'salir' cierra el socket.
 
 
 ### Ampliaciones

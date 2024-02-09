@@ -1,4 +1,4 @@
-package Tarea1;
+package UDP.Tarea1;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;

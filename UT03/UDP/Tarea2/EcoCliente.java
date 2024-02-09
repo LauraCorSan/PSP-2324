@@ -1,10 +1,10 @@
-package Tarea3;
+package UDP.Tarea2;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-public class ReverseCliente {
+public class EcoCliente {
     private static final int MAX_LENGTH = 65535;
     private static final int PORT = 9876;
 

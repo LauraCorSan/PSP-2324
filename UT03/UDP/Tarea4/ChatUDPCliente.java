@@ -1,11 +1,11 @@
-package Tarea5;
+package UDP.Tarea4;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.util.Scanner;
 
-public class ChatInterrumpidoCliente {
+public class ChatUDPCliente {
     private static final int MAX_LENGTH = 65535;
     public static int port;
     public static String ipServer;
@@ -18,25 +18,15 @@ public class ChatInterrumpidoCliente {
         port = Integer.valueOf(args[1]);
         try {
             DatagramSocket socket = new DatagramSocket();
-            Thread hiloEnviador = new Thread(() -> {
-                while (continuar) {
-                    enviar(socket);
-                }
-            });
-            Thread hiloRecibidor = new Thread(() -> {
-                while (continuar) {
-                    recibir(socket);
-                }
-            });
-            hiloEnviador.start();
-            hiloRecibidor.start();
-
-            hiloEnviador.join();
-            hiloRecibidor.join();
+            while (continuar) {
+                enviar(socket);
+                recibir(socket);
+            }
             socket.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     public static void recibir(DatagramSocket socket) {
@@ -74,4 +64,5 @@ public class ChatInterrumpidoCliente {
             e.printStackTrace();
         }
     }
+
 }

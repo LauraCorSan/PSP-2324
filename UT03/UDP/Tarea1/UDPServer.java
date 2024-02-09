@@ -1,4 +1,4 @@
-package Tarea1;
+package UDP.Tarea1;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -20,6 +20,7 @@ public class UDPServer {
                 String message = new String(receivedPacket.getData(), 0, receivedPacket.getLength());
                 System.out.println("Mensaje recibido: " + message);
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

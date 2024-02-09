@@ -1,21 +1,16 @@
-package Tarea6;
+package UDP.Tarea5;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.util.ArrayList;
 import java.util.Scanner;
 
-//TODO mejorar, solo imprime cuando envias
-public class ChatFuncionalCliente {
+public class ChatInterrumpidoCliente {
     private static final int MAX_LENGTH = 65535;
     public static int port;
     public static String ipServer;
     public static boolean continuar = true;
-
     public static Scanner sc = new Scanner(System.in);
-
-    private static ArrayList<String> mensajesServidor = new ArrayList<>();
 
     public static void main(String[] args) {
         // Recibimos la IP y el port por argumentos
@@ -53,9 +48,8 @@ public class ChatFuncionalCliente {
 
             // Extrae la información del paquete
             String message = new String(receivedPacket.getData(), 0, receivedPacket.getLength());
-            // Guardamos los mensajes recibidos en un array para que sean enviados al enviar
-            // el mensaje
-            mensajesServidor.add(message);
+            // Muestra informacion del servidor
+            System.out.println("server: " + message);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -75,10 +69,6 @@ public class ChatFuncionalCliente {
             // Envía el paquete al servidor
             DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, serverAddress, port);
             socket.send(sendPacket);
-            for (String mensaje : mensajesServidor) {
-                System.out.println("Servidor: " + mensaje);
-            }
-            mensajesServidor.clear();
 
         } catch (Exception e) {
             e.printStackTrace();

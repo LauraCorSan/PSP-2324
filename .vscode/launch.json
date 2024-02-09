@@ -3,6 +3,34 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Cliente",
+      "request": "launch",
+      "mainClass": "TCP.Tarea1.Cliente",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
+      "name": "ServidorNumero",
+      "request": "launch",
+      "mainClass": "TCP.Tarea1.ServidorNumero",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
+      "name": "Cliente",
+      "request": "launch",
+      "mainClass": "TCP.Tarea0.Cliente",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
+      "name": "ServidorMayus",
+      "request": "launch",
+      "mainClass": "TCP.Tarea0.ServidorMayus",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
       "name": "EcoCliente",
       "request": "launch",
       "mainClass": "EcoCliente",
