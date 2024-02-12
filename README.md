@@ -2,60 +2,37 @@
 
 ## Unidades
 
-[01-procesos](01-procesos/README.md)
+01-procesos
 
-> Programación C. Procesos y comunicación<br>
-> Programación de proceses Java<br>
-> 20h
+> Programación C. Procesos y comunicación(pipes)<br>
+> Programación de procesos Java<br>
 
-[02-hilos](02-hilos/README.md)
+02-hilos
 
 > Programación Hilos<br>
 > Sincronización<br>
-> 20h
 
-03-red
+03-Redes
 
 > Comunicación TCP<br>
 > Comunicación UDP<br>
 > Multihilo y broadcast<br>
-> 20h
 
-04-servicios
+04-Servicios
 
-> Servicios de red: DNS, SMTP, IMAP, POP, HTTP<br>
-> 10h
+> Servicios de red: 
+DNS, SMTP, IMAP, POP, HTTP<br>
 
 05-seguridad
 
 > Tipos de cifrado. Simétrico, asimétrico<br>
 > Hash<br>
 > Infraestructura calve pública/privada. Certificados<br>
-> 10h
 
 
-## Calendario 2023/24
-
-|     	| s1 	| s2 	| s3 	| s4 	| s5 	|
-|-----	|----	|----	|----	|----	|----	|
-| sep 	|    	|    	| c 01 	| 01   	| 01   	|
-| oct 	| 01   	| 01   	| 01   	| 01   	| 02   	|
-| nov 	| 02   	| 02   	| 02   	| 02   	| 02   	|
-| dic 	| 02   	|   - 	| j1  	| 03   	|   - 	|
-| ene 	|   - 	| 03  	| 03   	| 03   	| 03   	|
-| feb 	| 04   	| 04  	| 04   	| 05   	| 05   	|
-| mar 	| 05   	| fi  	| jf 	|    	|    	|
-
-```txt
-c   - 11 sep - comienzo clases
-p1  - 
-e1  - 
-j1  - 11 dic - junta primera
-p2  - 
-e2  - 
-fi  - 8-14 mar finales
-jf  - 15 mar - junta primera
-```
+## Calendario Examenes
+Examen 1ev: Miercoles 29 Noviembre
+Examen 2ev: Lunes 4 Marzo
 
 ## Evaluación
 

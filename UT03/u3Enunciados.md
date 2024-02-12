@@ -120,6 +120,8 @@ El servidor crea un hilo por cada cliente para gestionar: la lectura del mensaje
 
 Tarea 1: El servidor espera a un cliente, y este al conectarse le manda una cadena. Si el servidor recibe como cadena una 'N' envia al cliente un numero aleatroio, si recibe cualquier otra cadena nviara un mensaje "no entiendo la peticion" y si recibe 'salir' cierra el socket.
 
+Tarea 2: El servidor manda 100 numeros aleatorios al cliente, este comprobara si el numero recibido es primo, y en caso de serlo lo enviara de vuelta al servidor. El Servidor usara un hilo para enviar los 100 numeros, y otro hilo que recibira los numeros primos devueltos. Mientras el Cliente mandara a un hilo a comprobar si el numero es primo o no para ahorrar tiempo en la recepcion de numeros.
+
 
 ### Ampliaciones
 
@@ -128,6 +130,7 @@ Crea un cliente y un cliente y servidor TCP. El servidor contesta al cliente con
 Crea un cliente y un servidor TCP. El servidor manda al cliente el listado del directorio ```/var/files/``` como un String. Se puede hacer con el comando ```ls``` y ProcessBuilder o con las clases de Java para procesar ficheros y directorios.
 
 Crea un cliente y un servidor TCP. El servidor mandará un fichero PDF a cada cliente que se conecte. El PDF estará en el disco del servidor y su ruta estará almacenada en una constante.
+
 
 
 ### Ideas Futuras
