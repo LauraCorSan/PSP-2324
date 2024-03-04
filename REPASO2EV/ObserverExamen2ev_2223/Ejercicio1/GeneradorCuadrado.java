@@ -2,6 +2,7 @@ package ObserverExamen2ev_2223.Ejercicio1;
 
 public class GeneradorCuadrado {
     public static String generar(String formato) {
+        // recibimos string mediante la cual generar el cuadrado
         StringBuilder miFigura = new StringBuilder();
         String[] datos = formato.split(" ");
 

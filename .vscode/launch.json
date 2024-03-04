@@ -3,6 +3,48 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ServerMain",
+      "request": "launch",
+      "mainClass": "ObserverExamen2ev_2223.Ejercicio3.ServerMain",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
+      "name": "Cliente",
+      "request": "launch",
+      "mainClass": "TCP.Tarea3.Cliente",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
+      "name": "Server",
+      "request": "launch",
+      "mainClass": "TCP.Tarea3.Server",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
+      "name": "PrimosHttp",
+      "request": "launch",
+      "mainClass": "Examen2ev_2223.Ejercicio3.PrimosHttp",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
+      "name": "FiguraMain",
+      "request": "launch",
+      "mainClass": "ObserverExamen2ev_2223.Ejercicio1.FiguraMain",
+      "projectName": "PSP_39b6be75"
+    },
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "com.example.Main",
+      "projectName": "mail"
+    },
+    {
+      "type": "java",
       "name": "Cliente",
       "request": "launch",
       "mainClass": "TCP.Tarea1.Cliente",

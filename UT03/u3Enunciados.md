@@ -122,6 +122,8 @@ Tarea 1: El servidor espera a un cliente, y este al conectarse le manda una cade
 
 Tarea 2: El servidor manda 100 numeros aleatorios al cliente, este comprobara si el numero recibido es primo, y en caso de serlo lo enviara de vuelta al servidor. El Servidor usara un hilo para enviar los 100 numeros, y otro hilo que recibira los numeros primos devueltos. Mientras el Cliente mandara a un hilo a comprobar si el numero es primo o no para ahorrar tiempo en la recepcion de numeros.
 
+Tarea 3: PDF
+
 
 ### Ampliaciones
 

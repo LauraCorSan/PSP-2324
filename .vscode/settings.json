@@ -57,6 +57,7 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "java.project.sourcePaths": [
+    "mail",
     "UT03",
     "UT01/06. Entrenamiento Java",
     "UT01/05. Entrenamiento C/10,11 Java",

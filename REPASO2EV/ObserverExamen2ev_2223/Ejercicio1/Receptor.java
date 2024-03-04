@@ -7,13 +7,15 @@ import java.util.ArrayList;
 
 public class Receptor {
     private static final int MAX_LENGTH = 65535;
-    private static final String COM_FIN = "fin";
+    private static final String COM_FIN = "fin\n";
     ArrayList<IObserverDatagrama> misObservers;
     DatagramSocket socketEscuchador;
 
     public Receptor(int puertoEscucha) {
         try {
+            // creamos socket que usa un puerto especifico
             socketEscuchador = new DatagramSocket(puertoEscucha);
+            misObservers = new ArrayList<>();
         } catch (SocketException e) {
             e.printStackTrace();
         }
@@ -26,11 +28,13 @@ public class Receptor {
             DatagramPacket receivedPacket = new DatagramPacket(receivedData, receivedData.length);
             socketEscuchador.receive(receivedPacket);
             String datosFigura = new String(receivedPacket.getData(), 0, receivedPacket.getLength());
-            if (!datosFigura.equalsIgnoreCase(COM_FIN)) {
+            // datosFigura = datosFigura.substring(0, datosFigura.length() - 1);//para que
+            // quite el \n del final
+            if (!datosFigura.equalsIgnoreCase(COM_FIN)) {// si mensaje NO es fin notificamos y podemos seguir recibiendo
                 notificar(datosFigura);
                 return true;
             } else {
-                socketEscuchador.close();
+                socketEscuchador.close();// sino cerramos el socket y dejaremos de recibir
                 return false;
             }
 
